@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "price": 79.99,
+    "description": "Premium sound quality with 30hr battery life.",
+    "category": "Electronics",
+    "image": "https://placehold.co/300x300/1a1a2e/e0e0e0?text=Headphones",
+    "stock": 15
+  },
+  {
+    "id": 2,
+    "name": "Running Shoes",
+    "price": 54.99,
+    "description": "Lightweight and breathable for all terrains.",
+    "category": "Sports",
+    "image": "https://placehold.co/300x300/16213e/e0e0e0?text=Shoes",
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "name": "Coffee Maker",
+    "price": 44.99,
+    "description": "Brew perfect coffee every morning, 12-cup capacity.",
+    "category": "Kitchen",
+    "image": "https://placehold.co/300x300/0f3460/e0e0e0?text=Coffee+Maker",
+    "stock": 10
+  },
+  {
+    "id": 4,
+    "name": "Backpack",
+    "price": 34.99,
+    "description": "Durable 30L backpack with laptop compartment.",
+    "category": "Accessories",
+    "image": "https://placehold.co/300x300/533483/e0e0e0?text=Backpack",
+    "stock": 25
+  },
+  {
+    "id": 5,
+    "name": "Smart Watch",
+    "price": 129.99,
+    "description": "Track fitness, notifications, and more.",
+    "category": "Electronics",
+    "image": "https://placehold.co/300x300/e94560/ffffff?text=Smart+Watch",
+    "stock": 8
+  },
+  {
+    "id": 6,
+    "name": "Yoga Mat",
+    "price": 24.99,
+    "description": "Non-slip, eco-friendly, 6mm thick.",
+    "category": "Sports",
+    "image": "https://placehold.co/300x300/2c7873/ffffff?text=Yoga+Mat",
+    "stock": 40
+  }
+]

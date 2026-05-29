@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe Shop</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">LUXE</a>
+  <div class="nav-links">
+    <a href="/">Shop</a>
+    <a href="/cart" class="cart-btn">
+      🛒 Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Shop <span>Smarter,</span><br>Live Better</h1>
+  <p>Curated products delivered to your door. Quality you can feel.</p>
+</section>
+
+<div class="controls">
+  <input type="text" class="search-input" id="search" placeholder="Search products..." />
+  <select class="filter-select" id="category-filter">
+    <option value="">All Categories</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Sports">Sports</option>
+    <option value="Kitchen">Kitchen</option>
+    <option value="Accessories">Accessories</option>
+  </select>
+</div>
+
+<section class="products-section">
+  <h2 class="section-title">Our Products</h2>
+  <div class="products-grid" id="products-grid">
+    <p style="color:var(--text-dim)">Loading products...</p>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

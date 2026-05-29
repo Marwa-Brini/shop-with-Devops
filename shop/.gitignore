@@ -1,0 +1,21 @@
+# Node
+node_modules/
+npm-debug.log
+.env
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfvars        # contains secrets!
+
+# Ansible
+ansible/*.retry
+ansible/vault_password
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

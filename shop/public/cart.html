@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — Luxe Shop</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">LUXE</a>
+  <div class="nav-links">
+    <a href="/">Shop</a>
+    <a href="/cart" class="cart-btn">
+      🛒 Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+</nav>
+
+<div class="page-container">
+  <h1 class="page-title">Your Cart</h1>
+  <div id="cart-content">Loading...</div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="/js/main.js"></script>
+<script src="/js/cart.js"></script>
+</body>
+</html>

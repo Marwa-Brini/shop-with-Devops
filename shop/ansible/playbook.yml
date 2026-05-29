@@ -1,0 +1,102 @@
+---
+- name: Deploy Shop App
+  hosts: web
+  become: yes
+
+  vars:
+    app_dir: /opt/shop
+    app_user: ubuntu
+    docker_image: shop-app
+
+  tasks:
+    # ── System update ──────────────────────────────────────────
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+        upgrade: safe
+
+    # ── Install Docker ─────────────────────────────────────────
+    - name: Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - git
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        state: present
+
+    - name: Install Docker CE
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add user to docker group
+      user:
+        name: "{{ app_user }}"
+        groups: docker
+        append: yes
+
+    # ── Deploy App ─────────────────────────────────────────────
+    - name: Create app directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: "{{ app_user }}"
+        mode: "0755"
+
+    - name: Copy project files to server
+      synchronize:
+        src: ../
+        dest: "{{ app_dir }}"
+        rsync_opts:
+          - "--exclude=node_modules"
+          - "--exclude=.git"
+          - "--exclude=terraform"
+          - "--exclude=ansible"
+
+    - name: Build Docker image
+      community.docker.docker_image:
+        name: "{{ docker_image }}"
+        build:
+          path: "{{ app_dir }}"
+        source: build
+        state: present
+
+    - name: Run shop container
+      community.docker.docker_container:
+        name: shop-app
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "3000:3000"
+        env:
+          NODE_ENV: production
+          PORT: "3000"
+
+    # ── Done ───────────────────────────────────────────────────
+    - name: Show app URL
+      debug:
+        msg: "Shop is running at http://{{ ansible_host }}:3000"

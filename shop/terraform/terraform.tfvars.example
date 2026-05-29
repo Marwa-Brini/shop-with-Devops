@@ -1,0 +1,8 @@
+# Copy this file to terraform.tfvars and fill in your values
+# DO NOT commit terraform.tfvars to GitHub!
+
+region        = "us-east-1"
+key_name      = "your-aws-key-pair-name"
+key_path      = "~/.ssh/your-key.pem"
+instance_type = "t2.micro"
+environment   = "production"
